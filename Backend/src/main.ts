@@ -6,12 +6,9 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'http://localhost:3000',
-      'https://sms-school-management-system-production-fb1f.up.railway.app/',
-      'http://localhost:80',
+      'https://upbeat-joy-production-c93a.up.railway.app', 
       'http://localhost:5173',
-      'http://127.0.0.1',
-      'http://127.0.0.1:80',
+      'http://localhost:3000',
     ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -20,8 +17,6 @@ async function bootstrap() {
 
   const port = Number(process.env.PORT) || 3000;
   await app.listen(port, '0.0.0.0');
-
-  console.log(`Application is running on: http://localhost:${port}`);
+  console.log(`Application is running on port ${port}`);
 }
-
 bootstrap();
