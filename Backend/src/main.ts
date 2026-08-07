@@ -6,17 +6,24 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'https://upbeat-joy-production-c93a.up.railway.app', 
-      'http://localhost:5173',
       'http://localhost:3000',
+      'https://sms-school-management-system-production-fb1f.up.railway.app/',
+      'http://localhost:80',
+      'http://localhost:5173',
+      'http://127.0.0.1',
+      'http://127.0.0.1:80',
     ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   });
 
+  app.setGlobalPrefix('api');
+
   const port = Number(process.env.PORT) || 3000;
   await app.listen(port, '0.0.0.0');
-  console.log(`Application is running on port ${port}`);
+
+  console.log(`Application is running on: http://localhost:${port}`);
 }
+
 bootstrap();
