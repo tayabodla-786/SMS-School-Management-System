@@ -7,6 +7,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost',
+      'https://sms-school-management-system-production-fb1f.up.railway.app/',
       'http://localhost:80',
       'http://localhost:5173',
       'http://127.0.0.1',
