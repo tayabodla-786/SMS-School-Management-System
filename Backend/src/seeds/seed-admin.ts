@@ -20,7 +20,7 @@ async function seedAdmin() {
       process.exit(0);
     }
 
-    const hashedPassword = await bcrypt.hash('Admin@123', 10);
+    const hashedPassword = await bcrypt.hash('admin123', 10);
 
     const admin = userRepository.create({
       fullName: 'System Admin',

@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, BadRequestException, Logger } from '@nestjs/common';
+import { Injectable, UnauthorizedException, BadRequestException, Logger, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
@@ -11,7 +11,7 @@ import { ConfigService } from '@nestjs/config';
 import * as nodemailer from 'nodemailer';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnModuleInit {
   private readonly logger = new Logger(AuthService.name);
 
   constructor(
@@ -22,6 +22,46 @@ export class AuthService {
     private activityLogService: ActivityLogService,
     private configService: ConfigService,
   ) {}
+
+  async onModuleInit() {
+    await this.seedAdmin();
+  }
+
+  private async seedAdmin() {
+    try {
+      const email = 'admin@gmail.com';
+      let admin = await this.userRepository.findOne({ where: { email } });
+      const hashedPassword = await bcrypt.hash('admin123', 10);
+      
+      if (!admin) {
+        admin = this.userRepository.create({
+          fullName: 'System Admin',
+          email: email,
+          password: hashedPassword,
+          role: 'admin',
+          phone: '',
+          subject: '',
+          qualification: '',
+          rollNumber: '',
+          className: '',
+          section: '',
+        });
+        await this.userRepository.save(admin);
+        this.logger.log('Admin user seeded automatically with password admin123.');
+      } else {
+        // Ensure the password is correct if it was previously seeded differently
+        const isMatch = await bcrypt.compare('admin123', admin.password);
+        if (!isMatch) {
+          admin.password = hashedPassword;
+          await this.userRepository.save(admin);
+          this.logger.log('Admin user password reset to admin123.');
+        }
+      }
+    } catch (error) {
+      this.logger.error('Failed to seed admin user', error);
+    }
+  }
+
 
   private createMailTransporter() {
     const host = this.configService.get<string>('SMTP_HOST');
