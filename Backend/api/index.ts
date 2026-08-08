@@ -3,6 +3,7 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import express from 'express';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AppModule } from '../src/app.module';
+import { configureCors } from '../src/cors.config';
 
 const server = express();
 let isInitialized = false;
@@ -14,7 +15,8 @@ async function bootstrap() {
     new ExpressAdapter(server),
   );
 
-  app.enableCors();
+  configureCors(app);
+
   await app.init();
   isInitialized = true;
 }
