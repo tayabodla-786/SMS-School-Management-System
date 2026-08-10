@@ -8,7 +8,10 @@ export class AiController {
   @Post('chat')
   async chat(@Body() body: { message: string; role?: string }) {
     if (!body.message?.trim()) {
-      return { success: false, message: 'Message is required' };
+      return {
+        success: false,
+        message: 'Message is required',
+      };
     }
 
     const reply = await this.aiService.chat(
