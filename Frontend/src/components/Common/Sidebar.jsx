@@ -12,6 +12,7 @@ const Sidebar = ({ role, isOpen = false, onClose = () => {} }) => {
     { path: '/admin/teachers', icon: <FaChalkboardTeacher />, label: 'Teachers' },
     { path: '/admin/classes', icon: <FaUsers />, label: 'Classes' },
     { path: '/admin/users', icon: <FaUserPlus />, label: 'Users' },
+    { path: "/student/chatbot", icon: <FaRobot />, label: "AI Assistant" },
   ];
 
   const teacherMenu = [
