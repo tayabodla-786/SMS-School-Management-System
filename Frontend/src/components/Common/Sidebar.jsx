@@ -12,7 +12,7 @@ const Sidebar = ({ role, isOpen = false, onClose = () => {} }) => {
     { path: '/admin/teachers', icon: <FaChalkboardTeacher />, label: 'Teachers' },
     { path: '/admin/classes', icon: <FaUsers />, label: 'Classes' },
     { path: '/admin/users', icon: <FaUserPlus />, label: 'Users' },
-    { path: "/student/chatbot", icon: <FaRobot />, label: "AI Assistant" },
+    { path: "/admin/chatbot", icon: <FaRobot />, label: "AI Assistant" },
   ];
 
   const teacherMenu = [
@@ -20,7 +20,7 @@ const Sidebar = ({ role, isOpen = false, onClose = () => {} }) => {
     { path: '/teacher/classes', icon: <FaUsers />, label: 'My Classes' },
     { path: '/teacher/assignments', icon: <FaCalendarCheck />, label: 'Assignments' },
     { path: '/teacher/students', icon: <FaUserGraduate />, label: 'My Students' },
-    { path: "/student/chatbot", icon: <FaRobot />, label: "AI Assistant" },
+    { path: "/teacher/chatbot", icon: <FaRobot />, label: "AI Assistant" },
   ];
 
   const studentMenu = [
