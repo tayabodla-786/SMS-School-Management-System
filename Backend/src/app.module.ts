@@ -10,6 +10,7 @@ import { ClassesModule } from './classes/classes.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { StudentsModule } from './students/students.module';
 import { AssignmentsModule } from './assignments/assignments.module';
+import { AiModule } from './ai/ai.module';
 
 
 @Module({
@@ -44,6 +45,7 @@ import { AssignmentsModule } from './assignments/assignments.module';
     TeachersModule,
     StudentsModule,
     AssignmentsModule,
+    AiModule,
   ],
 
   controllers: [AppController],

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { FaHome, FaUserGraduate, FaChalkboardTeacher, FaUsers, FaBook, FaCalendarCheck, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
+import { FaHome, FaUserGraduate, FaChalkboardTeacher, FaUsers, FaBook, FaCalendarCheck, FaSignOutAlt, FaUserPlus, FaRobot } from 'react-icons/fa';
 import { Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../../Context/ThemeContext';
 
@@ -19,6 +19,7 @@ const Sidebar = ({ role, isOpen = false, onClose = () => {} }) => {
     { path: '/teacher/classes', icon: <FaUsers />, label: 'My Classes' },
     { path: '/teacher/assignments', icon: <FaCalendarCheck />, label: 'Assignments' },
     { path: '/teacher/students', icon: <FaUserGraduate />, label: 'My Students' },
+    { path: "/student/chatbot", icon: <FaRobot />, label: "AI Assistant" },
   ];
 
   const studentMenu = [
@@ -26,6 +27,7 @@ const Sidebar = ({ role, isOpen = false, onClose = () => {} }) => {
     { path: '/student/classes', icon: <FaUsers />, label: 'My Classes' },
     { path: '/student/assignments', icon: <FaBook />, label: 'Assignments' },
     { path: '/student/teachers', icon: <FaChalkboardTeacher />, label: 'My Teachers' },
+    { path: "/student/chatbot", icon: <FaRobot />, label: "AI Assistant" },
   ];
 
   let menu = [];

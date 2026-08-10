@@ -27,6 +27,7 @@ import TeacherRegister from '../Pages/Teacher/Register.jsx';
 import StudentRegister from '../Pages/Student/Register.jsx';
 import StudentClasses from '../Pages/Student/Classes.jsx';
 import StudentTeachers from '../Pages/Student/Teachers.jsx';
+import Chatbot from '../components/Common/Chatbot.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,7 @@ export const router = createBrowserRouter([
       { path: "teachers", element: <AdminTeachers /> },
       { path: "classes", element: <AdminClasses /> },
       { path: "users", element: <AdminUsers /> },
+      { path: "chatbot", element: <Chatbot /> },
     ],
   },
 
@@ -60,6 +62,7 @@ export const router = createBrowserRouter([
       { path: "classes", element: <TeacherClasses /> },
       { path: "assignments", element: <TeacherAssignment /> },
       { path: "students", element: <TeacherStudents /> },
+      { path: "chatbot", element: <Chatbot /> },
     ],
   },
 
@@ -72,6 +75,7 @@ export const router = createBrowserRouter([
       { path: "classes", element: <StudentClasses /> },
       { path: "teachers", element: <StudentTeachers /> },
       { path: "assignments", element: <StudentAssignment /> },
+      { path: "chatbot", element: <Chatbot /> },
     ],
   },
 

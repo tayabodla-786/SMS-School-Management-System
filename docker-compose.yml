@@ -29,6 +29,7 @@ services:
       DB_PASSWORD: Tayyab2439
       DB_NAME: school_db
       JWT_SECRET: c1ecb846a0312e3a0c4e4fa40dd0b3afd6fc195ccd7dc073db064e0c3c6f1879
+      OPENAI_API_KEY: OPENAI_API_KEY
       NODE_ENV: production
     depends_on:
       db:
